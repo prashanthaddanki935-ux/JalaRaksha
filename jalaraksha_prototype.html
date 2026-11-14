@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f72">
+<title>JalaRaksha | Community Water Care</title>
+<style>
+:root{--green:#087f72;--green2:#0da58f;--ink:#163532;--muted:#647b78;--bg:#f2f8f7;--line:#dce9e6;--white:#fff;--orange:#f2a541;--red:#d65b55;--shadow:0 12px 32px rgba(20,75,68,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{background:linear-gradient(120deg,#075e56,#0b9b88);color:white;padding:22px max(20px,calc((100% - 1120px)/2));}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:15px;background:#ffffff24;display:grid;place-items:center;font-size:25px}.brand h1{font-size:23px;margin:0;letter-spacing:.2px}.brand p{margin:3px 0 0;color:#d5f4ee;font-size:12px}.tag{border:1px solid #ffffff66;border-radius:30px;padding:8px 12px;font-size:12px}
+main{max-width:1120px;margin:24px auto;padding:0 18px 50px}.intro{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.intro h2{font-size:25px;margin:0 0 5px}.intro p{margin:0;color:var(--muted);font-size:14px}.demo{font-size:11px;color:#815b19;background:#fff3d9;padding:8px 11px;border-radius:20px;white-space:nowrap}
+nav{display:flex;gap:8px;overflow:auto;padding:5px 0 15px}.tab{border:1px solid var(--line);background:white;color:var(--muted);padding:10px 15px;border-radius:12px;font-weight:650;white-space:nowrap;cursor:pointer}.tab.active{background:var(--green);color:white;border-color:var(--green)}
+.panel{display:none}.panel.active{display:block}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:17px}.stat,.card{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.stat small{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:28px;margin-top:7px}.stat span{font-size:20px;float:right}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.card h3{margin:0 0 13px;font-size:16px}.card p{color:var(--muted);font-size:13px;line-height:1.6}.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quick button{border:1px solid var(--line);background:#f8fcfb;border-radius:13px;padding:13px;text-align:left;color:var(--ink);cursor:pointer;font-weight:650}.quick button span{display:block;font-size:22px;margin-bottom:7px}
+form{display:grid;gap:12px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:12px;font-weight:700;color:#3d5c57;display:block;margin-bottom:6px}input,select,textarea{width:100%;border:1px solid #cddedb;border-radius:11px;padding:12px;font:inherit;font-size:14px;background:#fff;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #087f7218}textarea{min-height:100px;resize:vertical}.btn{border:0;border-radius:11px;background:var(--green);color:white;padding:12px 17px;font-weight:700;cursor:pointer}.btn.secondary{background:#e8f4f1;color:var(--green)}.btn.danger{background:#fff0ef;color:#b4443e}.hint{font-size:12px;color:var(--muted);margin:0}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}.toolbar input{max-width:270px}.issue-list{display:grid;gap:10px}.issue{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;display:grid;grid-template-columns:1fr auto;gap:12px}.issue h4{margin:0 0 5px;font-size:14px}.issue p{margin:3px 0;color:var(--muted);font-size:12px}.pill{display:inline-block;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:750;background:#fff3df;color:#94651b}.pill.Resolved{background:#e3f6ed;color:#16754d}.pill.In-Progress{background:#e7f1ff;color:#3264a0}.issue select{width:auto;padding:7px;font-size:12px}.tips{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.tip{padding:16px;border-radius:15px;background:#f5fbf9;border:1px solid var(--line)}.tip b{display:block;margin-bottom:6px}.tip p{margin:0}.empty{text-align:center;padding:28px;color:var(--muted);background:#f8fcfb;border-radius:14px;border:1px dashed var(--line)}.footer{text-align:center;color:#829693;font-size:11px;padding:25px 0 0}.notice{padding:12px 14px;border-radius:12px;background:#e8f7f2;color:#17634f;font-size:13px;margin-bottom:12px;display:none}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.intro{align-items:start;flex-direction:column}.fields{grid-template-columns:1fr}.tips{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="brand"><div class="logo">💧</div><div><h1>JalaRaksha</h1><p>Community Water Care & Conservation</p></div></div><div class="tag">A community service prototype</div></div></header>
+<main>
+<div class="intro"><div><h2>Water matters. Every drop counts.</h2><p>Report water problems, follow community action and learn simple ways to save water.</p></div><div class="demo">Prototype demo · Data saved on this device</div></div>
+<nav>
+<button class="tab active" data-tab="dashboard">Overview</button><button class="tab" data-tab="report">Report a problem</button><button class="tab" data-tab="issues">Community reports</button><button class="tab" data-tab="tips">Save water</button><button class="tab" data-tab="about">About</button>
+</nav>
+<div id="notice" class="notice"></div>
+<section id="dashboard" class="panel active">
+<div class="stats">
+<div class="stat"><small>Total reports</small><span>📋</span><strong id="total">0</strong></div>
+<div class="stat"><small>Open reports</small><span>🚰</span><strong id="open">0</strong></div>
+<div class="stat"><small>In progress</small><span>🛠️</span><strong id="progress">0</strong></div>
+<div class="stat"><small>Resolved</small><span>✅</span><strong id="resolved">0</strong></div>
+</div>
+<div class="grid">
+<div class="card"><h3>Community activity</h3><p>Track reported water leakage, supply issues and other concerns. The counts update when reports are added or their status changes.</p><div id="recent" class="issue-list"></div></div>
+<div class="card"><h3>What would you like to do?</h3><div class="quick"><button onclick="showTab('report')"><span>🚱</span>Report leakage</button><button onclick="showTab('issues')"><span>🧾</span>View reports</button><button onclick="showTab('tips')"><span>🌱</span>Water-saving tips</button><button onclick="showTab('about')"><span>🤝</span>Project details</button></div><p style="margin-top:14px">This is a demonstration prototype. It does not send complaints to a real Panchayat or water department.</p></div>
+</div></section>
+<section id="report" class="panel">
+<div class="card"><h3>Submit a community water report</h3><p>Share enough detail so the responsible local team can understand the issue.</p>
+<form id="reportForm">
+<div class="fields"><div><label for="person">Your name</label><input id="person" required maxlength="50" placeholder="Enter your name"></div><div><label for="area">Area / Street / Village</label><input id="area" required maxlength="80" placeholder="Where is the issue?"></div></div>
+<div class="fields"><div><label for="kind">Problem type</label><select id="kind"><option>Water leakage</option><option>Water shortage</option><option>Overflowing tank</option><option>Damaged public tap</option><option>Other</option></select></div><div><label for="urgency">Priority</label><select id="urgency"><option>Normal</option><option>Urgent</option></select></div></div>
+<div><label for="details">Problem description</label><textarea id="details" required maxlength="400" placeholder="Describe what happened and any useful landmark..."></textarea></div>
+<button class="btn" type="submit">Submit report</button><p class="hint">Demo only: your report is stored in this browser on this device.</p>
+</form></div></section>
+<section id="issues" class="panel">
+<div class="card"><div class="toolbar"><div><h3 style="margin-bottom:4px">Community reports</h3><p style="margin:0">Review reports and update their demo status.</p></div><input id="search" placeholder="Search area or issue..." aria-label="Search reports"></div><div id="issueList" class="issue-list"></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn secondary" onclick="exportCSV()">Download CSV</button><button class="btn danger" onclick="clearReports()">Clear all reports</button></div><p class="hint" style="margin-top:10px">Status controls are for prototype demonstration, not official complaint tracking.</p></div>
+</section>
+<section id="tips" class="panel"><div class="card"><h3>Simple ways to save water</h3><p>Small daily actions can make a meaningful difference.</p><div class="tips">
+<div class="tip"><b>🔧 Fix leaks quickly</b><p>Report dripping taps and leaking pipes instead of ignoring them.</p></div><div class="tip"><b>🪣 Use a bucket</b><p>Use a bucket instead of a running hose when washing vehicles or outdoor spaces.</p></div><div class="tip"><b>🚿 Reduce shower time</b><p>Turn off the tap while brushing and avoid unnecessary water flow.</p></div><div class="tip"><b>🌧️ Collect rainwater</b><p>Where safe and permitted, collect rainwater for gardening and cleaning.</p></div><div class="tip"><b>🌿 Water plants wisely</b><p>Water plants early in the morning or evening to reduce evaporation.</p></div><div class="tip"><b>📢 Spread awareness</b><p>Share water-saving habits with neighbours, friends and family.</p></div>
+</div></div></section>
+<section id="about" class="panel"><div class="card"><h3>About JalaRaksha</h3><p><b>Goal:</b> Encourage community participation in identifying water problems and reducing wastage.</p><p><b>Target users:</b> Residents, farmers, local volunteers and Panchayat water-supply workers.</p><p><b>Proposed workflow:</b> A resident submits a report → the community team reviews it → action status is updated → residents can see progress.</p><p><b>Technology used:</b> HTML for structure, CSS for design and JavaScript for interactive features. Browser local storage keeps demo reports on this device.</p><p><b>Future improvements:</b> GPS location tagging, photo uploads, multilingual Telugu/English interface, verified user accounts, SMS alerts and a real administrator dashboard.</p><p><b>Important limitation:</b> This prototype is a front-end demonstration. It is not connected to live water sensors, a government database or an official complaint service.</p></div></section>
+<div class="footer">JalaRaksha · Student community project prototype · Built for demonstration</div>
+</main>
+<script>
+const KEY='jalaraksha_reports_v1';
+let reports=[];
+try{reports=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(reports))reports=[]}catch(e){reports=[]}
+function save(){localStorage.setItem(KEY,JSON.stringify(reports));render()}
+function showTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function issueHTML(r,controls=false){return `<article class="issue"><div><h4>${esc(r.kind)} · ${esc(r.area)}</h4><p>Reported by ${esc(r.person)} · ${esc(r.date)} · ${esc(r.urgency)} priority</p><p>${esc(r.details)}</p></div><div style="text-align:right"><span class="pill ${r.status.replace(' ','-')}">${esc(r.status)}</span>${controls?`<div style="margin-top:9px"><select aria-label="Update report status" onchange="updateStatus('${r.id}',this.value)"><option ${r.status==='Open'?'selected':''}>Open</option><option ${r.status==='In Progress'?'selected':''}>In Progress</option><option ${r.status==='Resolved'?'selected':''}>Resolved</option></select></div>`:''}</div></article>`}
+function render(){
+document.getElementById('total').textContent=reports.length;
+document.getElementById('open').textContent=reports.filter(r=>r.status==='Open').length;
+document.getElementById('progress').textContent=reports.filter(r=>r.status==='In Progress').length;
+document.getElementById('resolved').textContent=reports.filter(r=>r.status==='Resolved').length;
+const recent=[...reports].slice(-3).reverse();
+document.getElementById('recent').innerHTML=recent.length?recent.map(r=>issueHTML(r)).join(''):'<div class="empty">No reports yet. Use “Report a problem” to add the first community report.</div>';
+const q=(document.getElementById('search')?.value||'').toLowerCase();
+const filtered=[...reports].reverse().filter(r=>(r.area+' '+r.kind+' '+r.details).toLowerCase().includes(q));
+document.getElementById('issueList').innerHTML=filtered.length?filtered.map(r=>issueHTML(r,true)).join(''):'<div class="empty">No matching reports found.</div>';
+}
+document.getElementById('reportForm').addEventListener('submit',e=>{e.preventDefault();const r={id:String(Date.now()),person:document.getElementById('person').value.trim(),area:document.getElementById('area').value.trim(),kind:document.getElementById('kind').value,urgency:document.getElementById('urgency').value,details:document.getElementById('details').value.trim(),status:'Open',date:new Date().toLocaleDateString()};reports.push(r);save();e.target.reset();const n=document.getElementById('notice');n.textContent='Your demo report has been added successfully.';n.style.display='block';showTab('issues');window.scrollTo({top:0,behavior:'smooth'});});
+function updateStatus(id,status){const r=reports.find(x=>x.id===id);if(r){r.status=status;save()}}
+document.getElementById('search').addEventListener('input',render);
+function exportCSV(){if(!reports.length){alert('There are no reports to download yet.');return}const rows=[['Name','Area','Problem','Priority','Description','Status','Date'],...reports.map(r=>[r.person,r.area,r.kind,r.urgency,r.details,r.status,r.date])];const csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='jalaraksha-community-reports.csv';a.click();URL.revokeObjectURL(a.href)}
+function clearReports(){if(confirm('Delete all locally saved demo reports from this browser?')){reports=[];save()}}
+render();
+</script>
+</body></html>
